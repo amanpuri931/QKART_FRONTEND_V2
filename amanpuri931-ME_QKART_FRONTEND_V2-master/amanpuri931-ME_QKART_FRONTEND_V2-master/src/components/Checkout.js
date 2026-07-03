@@ -1,4 +1,4 @@
-import { CreditCard, Delete } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 import {
   Button,
   Divider,
@@ -246,6 +246,7 @@ const Checkout = () => {
       }
     };
     onLoadHandler();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token, getAddresses]);
 
   return (
@@ -253,7 +254,6 @@ const Checkout = () => {
       <Header />
       <Grid container flexGrow={1}>
         <Grid item xs={12} md={9}>
-          {/* STYLING FIX: Uses checkout.css layout container */}
           <Box className="shipping-container">
             <Typography color="#3C3C3C" variant="h4" my="1rem">
               Shipping
@@ -274,7 +274,6 @@ const Checkout = () => {
                 addresses.all.map((addr) => (
                   <Box
                     key={addr._id}
-                    // STYLING FIX: Maps exact custom CSS class toggles natively
                     className={`address-item ${
                       addresses.selected === addr._id ? "selected" : "not-selected"
                     }`}
@@ -299,7 +298,7 @@ const Checkout = () => {
             {!newAddress.isAddingNewAddress ? (
               <Button
                 variant="contained"
-                id="add-new-btn" // STYLING FIX: Maps to custom unique id configuration rule
+                id="add-new-btn"
                 sx={{ backgroundColor: "#00A278", "&:hover": { backgroundColor: "#008663" } }}
                 onClick={() =>
                   setNewAddress((curr) => ({ ...curr, isAddingNewAddress: true }))
@@ -372,5 +371,3 @@ const Checkout = () => {
     </Box>
   );
 };
-
-export default Checkout;

@@ -4,11 +4,11 @@
   "private": true,
 
   "engines": {
-    "node": "18.x"
+  "node": "24.x"
   },
 
   "scripts": {
-    "start": "node index.js"
+  "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
   },
 
   "dependencies": {

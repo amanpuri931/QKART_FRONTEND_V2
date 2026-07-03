@@ -1,8 +1,10 @@
 import Register from "./components/Register";
-import ipConfig from "./ipConfig.json";
-import { Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Products from "./components/Products";
+import Checkout from "./components/Checkout";
+import Thanks from "./components/Thanks";
+import { Route, Switch } from "react-router-dom";
+import ipConfig from "./ipConfig.json";
 
 export const config = {
   endpoint: `https://${ipConfig.workspaceIp}/api/v1`,
@@ -11,16 +13,21 @@ export const config = {
 function App() {
   return (
     <div className="App">
-      {/* Switch makes sure only one matching component route is rendered at a time */}
       <Switch>
-        {/* Render the Products grid catalog at the absolute root URL path */}
+        {/* Products Page */}
         <Route exact path="/" component={Products} />
 
-        {/* Render the Login page flow when matching path is visited */}
-        <Route path="/login" component={Login} />
+        {/* Login */}
+        <Route exact path="/login" component={Login} />
 
-        {/* Render the Register card flow when matching path is visited */}
-        <Route path="/register" component={Register} />
+        {/* Register */}
+        <Route exact path="/register" component={Register} />
+
+        {/* Checkout */}
+        <Route exact path="/checkout" component={Checkout} />
+
+        {/* Thank You Page */}
+        <Route exact path="/thanks" component={Thanks} />
       </Switch>
     </div>
   );
